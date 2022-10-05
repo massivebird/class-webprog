@@ -9,7 +9,7 @@ class Calculator {
    public function calc($operator=Null, $num1=Null, $num2=Null) {
       // verify correct number of arguments
       if (is_null($operator) || is_null($num1) || is_null($num2)) {
-	 self::printError("you need a string and two numbers");
+	 self::printError("you must enter a string and two numbers");
 	 return;
       }
       // verify valid operator
