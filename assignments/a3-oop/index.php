@@ -11,10 +11,10 @@ echo $Calculator->calc(10); //will output You must enter a string and two number
 ?>
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <title>Garrett's Calculator class</title>
-   </head>
-   <body>
-   </body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Garrett's Calculator class</title>
+	</head>
+	<body>
+	</body>
 </html>
