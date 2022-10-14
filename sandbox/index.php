@@ -1,38 +1,41 @@
 <?php
-
-$output = "";
-
-if (isset($_POST['submitAndPrint']) and !empty($_POST['firstName'])) {
-   $output = <<<HTML
-   <p>Thanks for submitting the form,
-   {$_POST['firstName']}!</p>
-   HTML;
+if(count($_POST) > 0){
+   require_once 'addNameProc.php';
+   $addName = new AddNamesProc();
+   $output = $addName->addClearNames();
+} else {
+   $output = "";
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <title>Garrett's Sandbox</title>
+   <title>Garrett - Assignment 4</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <style>
 * {
-   font-family: "Helvetica";
+   font-family: 'Helvetica';
 }
 </style>
 <body>
-<h1>The form</h1>
-<?php echo $output; // print_r($_POST['submitAndPrint']); ?>
+<div class="m-3">
+
+<h1><b>Add Names</b></h1>
 <form action="index.php" method="post">
-   <input type="text" name="firstName" id="firstName" placeholder="Enter your name here" />
-   <br><br>
-   <label> Show name 
-      <input type="checkbox" name="submitAndPrint" id="submitAndPrint" value="submit" checked />
-   </label>
-   <br><br>
-   <input type="submit" name="submitButton" id="submitButton" value="Submit form" />
+<button type="submit" name="buttonPressed" value="add" class="btn btn-primary">Add Name</button>
+<button type="submit" name="buttonPressed" value="reset" class="btn btn-primary">Clear Names</button>
+<div class="form-group">
+   <label for="fieldName">Enter Name</label>
+   <input type="text" class="form-control" id="nameInput" name="nameInput" placeholder="Enter name here">
+</div>
+<label for="namesDisplay">List of Names</label>
+<textarea style="height: 500px;" class="form-control"
+id="namelist" name="namelist"><?php echo $output ?></textarea>
+
+</div>
 </form>
-<br>
-<a href="index.php">Reset</a>
+</div>
 </body>
 </html>
