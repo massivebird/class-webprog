@@ -18,9 +18,10 @@ $output = $listThis->listTheFiles();
    <body>
       <div class="m-3">
          <h1><b>List Files</b></h1>
-         <a href="index.php" class="link-primary mb-3">Add File</a>
-<br>
+         <a href="index.php" class="link-primary">Add File</a>
+            <div class="mt-3">
          <?php echo $output; ?>
+</div>
       </div>
    </body>
 </html>
