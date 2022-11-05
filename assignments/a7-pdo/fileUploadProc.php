@@ -58,8 +58,6 @@ class fileUploadProc {
          return self::msgSuccess("File successfully added");
       }
    }
-      return self::msgError("Please enter a file name and attach a file.");
-   }
 }
 
 ?>
