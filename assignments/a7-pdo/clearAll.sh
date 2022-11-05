@@ -5,8 +5,8 @@
 
 TABLE_NAME="a7pdo"
 
-# delete all files
-rm -f "./files/*"
+# delete all files, broken??
+rm -v "$HOME/public_html/a7-pdo/files/*"
 if [ $? -ne 0 ]; then
    printf "%s: ERROR: failed to delete files\n" $0
 else
