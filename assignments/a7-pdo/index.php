@@ -1,6 +1,6 @@
 <?php
 if(count($_POST) > 0){
-   require_once 'FileUploader.php';
+   require_once 'fileUploadProc.php';
    $uploadThis = new fileUploadProc();
    $output = $uploadThis->uploadTheFile();
 } else {
@@ -23,7 +23,7 @@ if(count($_POST) > 0){
       <div class="m-3">
          <h1><b>File Upload</b></h1>
 <?php echo $output; ?>
-         <a href="index.php" class="link-primary">Show File List</a>
+         <a href="index-list.php" class="link-primary">Show File List</a>
          <form action="index.php" method="post" enctype="multipart/form-data">
             <div class="form-group mt-3">
                <label for="fieldName">File Name</label>
