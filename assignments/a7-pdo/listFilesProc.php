@@ -16,7 +16,7 @@ class listFilesProc {
 
       // iterate through files
       // EXCEPT . and ..
-      for ($i = 3; $i < count($files); $i++) {
+      for ($i = 2; $i < count($files); $i++) {
          $output .= self::listItem($files[$i]);
       }
 
