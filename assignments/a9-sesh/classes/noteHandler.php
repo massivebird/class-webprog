@@ -10,6 +10,7 @@ class noteHandler {
       return "<p class=\"text-primary\">$msg</p>";
    }
 
+   // for index.php
    public function addNote() {
       // validates:
       // (1) Date/time was inputted
@@ -28,21 +29,23 @@ class noteHandler {
          ];
 
          // error if already exists a note with the same timestamp
-         /* print_r( $pdo->selectBinded("SELECT timestamp FROM a9sesh WHERE timestamp = :timestamp", [$bindings[0]])); */
          if (!empty($pdo->selectBinded("SELECT timestamp FROM a9sesh WHERE timestamp = :timestamp", [$bindings[0]]))) {
             return self::msgError("A note already exists with that timestamp.");
          }
 
+         // insert timestamp, note
          $pdo->otherBinded("INSERT INTO a9sesh (timestamp, note) VALUES (:timestamp, :note)", $bindings);
 
          return self::msgSuccess("Note inputted!");
 
       }
 
+      // error if missing inputs
       return self::msgError("Please enter a date/time and note.");
 
    }
 
+   // for index-list-notes.php
    public function listNotes() {
       // validates:
       // (1) Beginning date was inputted
@@ -78,6 +81,10 @@ class noteHandler {
          return $output;
 
       }
+
+      // error if missing inputs
+      return self::msgError("Please enter two dates.");
+
    }
 
 }
