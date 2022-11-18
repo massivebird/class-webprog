@@ -1,10 +1,10 @@
 <?php
 if(count($_POST) > 0){
-   require_once 'classes/Date_time.php';
-   $dt = new Date_time();
-   $notes = $dt->checkSubmit();
+   require_once 'classes/noteHandler.php';
+   $handler = new noteHandler();
+   $output = $handler->addNote();
 } else {
-   $notes = "";
+   $output = "";
 }
 ?>
 <!DOCTYPE html>
@@ -22,18 +22,18 @@ if(count($_POST) > 0){
    <body>
       <div class="m-3">
          <h1><b>Add Note</b></h1>
-   <?php echo $notes; ?>
-         <a href="index-list.php" class="link-primary">Display Notes</a>
+   <?php echo $output; ?>
+         <a href="index-list-notes.php" class="link-primary">Display Notes</a>
          <form action="index.php" method="post" enctype="multipart/form-data">
             <div class="form-group mt-3">
                <label for="fieldName">Date and Time</label>
-         <input type="datetime-local" class="form-control" id="dataTime" name="dateTime">
+         <input type="datetime-local" class="form-control" id="inputDateTime" name="inputDateTime">
             </div>
             <div class="form-group mt-3">
                <label for="noteInput">Note</label>
-               <textarea style="height: 300px" id="noteInput" class="form-control"></textarea>
+               <textarea style="height: 300px" id="inputNote" class="form-control" name="inputNote"></textarea>
             </div>
-            <button type="submit" name="buttonPressed" value="add" class="mt-3 btn btn-primary">Add Note</button>
+            <button type="submit" name="buttonPressed" value="submit" class="mt-3 btn btn-primary">Add Note</button>
          </form>
       </div>
    </body>
