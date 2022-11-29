@@ -1,17 +1,14 @@
 <?php
-if(count($_POST) > 0){
-   require_once 'classes/loginHandler.php';
-   $handler = new loginHandler();
-   $output = $handler->login();
-} else {
-   $output = "";
-}
+require_once('pages/routes.php');
+require_once('classes/Validation.php');
+$obj = new Validation();
+$obj->checkFormat($_POST['inputEmail'], "email");
 ?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <meta charset="UTF-8">
       <title>Login - Garrett's Final</title>
+      <meta charset="UTF-8">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
    </head>
    <style>
@@ -21,8 +18,8 @@ if(count($_POST) > 0){
 </style>
    <body>
       <div class="m-3">
+<?php  ?>
          <h1><b>Login</b></h1>
-   <?php echo $output; ?>
          <form action="index.php" method="post" enctype="multipart/form-data">
             <div class="form-group mt-3">
                <label for="fieldName">Email</label>
