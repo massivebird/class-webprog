@@ -3,44 +3,53 @@
 // controls all routing, bringing in content
 // of other pages
 
-$path = "index.php?page=welcome";
-
+$path = "index.php?page=login";
 
 $nav=<<<HTML
-    <nav>
-        <ul>
-            <li><a href="index.php?page=welcome">Welcome</a></li>
-            <li><a href="index.php?page=addContact">Add Contact Information</a></li>
-            <li><a href="index.php?page=deleteContacts">Delete contact(s)</a></li>
-        </ul>
-    </nav>
+<nav>
+<ul>
+<li><a href="index.php?page=welcome">Welcome</a></li>
+<li><a href="index.php?page=addContact">Add Contact Information</a></li>
+<li><a href="index.php?page=deleteContacts">Delete contact(s)</a></li>
+</ul>
+</nav>
 HTML;
 
-if(isset($_GET)){
-    if($_GET['page'] === "addContact"){
-        require_once('pages/addContact.php');
-        $result = init();
-    }
-    
-    else if($_GET['page'] === "deleteContacts"){
-        require_once('pages/deleteContacts.php');
-        $result = init();
-    }
+if (isset($_GET)) {
 
-    else if($_GET['page'] === "welcome"){
-        require_once('pages/welcome.php');
-        $result = init();
-    }
+   if ($_GET['page'] === "addContact") {
+      require_once('pages/addContact.php');
+      $result = init();
+      return;
+   }
 
-    else {
-        header('location: '.$path);
-    }
+   elseif ($_GET['page'] === "deleteContacts") {
+      require_once('pages/deleteContacts.php');
+      $result = init();
+      return;
+   }
+
+   elseif ($_GET['page'] === "welcome") {
+      require_once('pages/welcome.php');
+      $result = init();
+      return;
+   }
+
+   elseif ($_GET['page'] === "login") {
+      require_once('pages/login.php');
+      // no nav
+      $nav = "";
+      // page:
+      // login form
+      $result = init();
+      return;
+   }
+
 }
 
-else {
-    header('location: '.$path);
-}
-
-
+// if $_GET is not set, default to login page
+require_once('pages/login.php');
+header('location: '.$path);
+return;
 
 ?>
