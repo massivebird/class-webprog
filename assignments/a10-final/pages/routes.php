@@ -7,10 +7,10 @@ $path = "index.php?page=login";
 
 $nav=<<<HTML
 <nav>
-<ul>
-<li><a href="index.php?page=welcome">Welcome</a></li>
-<li><a href="index.php?page=addContact">Add Contact Information</a></li>
-<li><a href="index.php?page=deleteContacts">Delete contact(s)</a></li>
+<ul class="nav">
+<li class="nav-item"><a class="nav-link" href="index.php?page=welcome">Welcome</a></li>
+<li class="nav-item"><a class="nav-link" href="index.php?page=addContact">Add Contact Information</a></li>
+<li class="nav-item"><a class="nav-link" href="index.php?page=deleteContacts">Delete contact(s)</a></li>
 </ul>
 </nav>
 HTML;
