@@ -11,7 +11,8 @@ function init() {
 
          // if password is good
          if (password_verify($_POST['inputPassword'], password_hash("password", PASSWORD_DEFAULT))) {
-            $notice = "password ".$_POST['inputPassword']." is good!";
+            /* $notice = "password ".$_POST['inputPassword']." is good!"; */
+            header("Location: index.php?page=welcome");
          } else $notice = "password ".$_POST['inputPassword']." bad";
 
       }
@@ -22,7 +23,7 @@ function init() {
 
    }
 
-   $output =<<<HTML
+   $content =<<<HTML
       <div class="m-3">
          <h1><b>Login</b></h1>
          <form action="index.php?page=login" method="post">
@@ -39,7 +40,7 @@ function init() {
       </div>
 HTML;
 
-   return ["notice"=>$notice, "content"=>$output];
+   return ["notice"=>$notice, "content"=>$content];
 
 }
 ?>

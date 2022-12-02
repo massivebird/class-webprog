@@ -11,9 +11,14 @@ $nav=<<<HTML
 <li class="nav-item"><a class="nav-link" href="index.php?page=welcome">Welcome</a></li>
 <li class="nav-item"><a class="nav-link" href="index.php?page=addContact">Add Contact Information</a></li>
 <li class="nav-item"><a class="nav-link" href="index.php?page=deleteContacts">Delete contact(s)</a></li>
+<li class="nav-item"><a class="nav-link" href="index.php?page=login">Logout</a></li>
 </ul>
 </nav>
 HTML;
+
+function type() {
+   echo "<h1>YES</h1>";
+}
 
 if (isset($_GET)) {
 
