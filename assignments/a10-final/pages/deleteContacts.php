@@ -4,9 +4,7 @@ function init(){
 
    $notice = "";
 
-   $name = "Garrett";
-
-   $content = "<h1><b>Welcome</b></h1><p>Welcome, ".$name."!</p>";
+   $content = "<h1><b>Delete Contacts</b></h1>";
 
    return ["notice"=>$notice, "content"=>$content];
 }
