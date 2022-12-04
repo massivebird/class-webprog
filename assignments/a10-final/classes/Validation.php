@@ -9,6 +9,7 @@ class Validation{
 	{
 		switch($type){
 			case "name": return $this->name($input); break;
+			case "address": return $this->address($input); break;
 			case "phone": return $this->phone($input); break;
 			case "email": return $this->email($input); break;
 			
@@ -34,6 +35,11 @@ class Validation{
 
 	private function email($input){
 		$match = preg_match('/^[\w\d]+\@[\w\d]+\.[\w\d]+$/i', $input);
+		return $this->setError($match);
+	}
+
+	private function address($input){
+		$match = preg_match('/^\d+\ [\w\ \.\-]+/i', $input);
 		return $this->setError($match);
 	}
 	

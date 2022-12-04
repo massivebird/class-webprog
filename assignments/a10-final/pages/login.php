@@ -35,8 +35,17 @@ HTML;
 
          // if password is good
          if (isCorrectCredentials()) {
+
+            // let's log in!
+            // start a session
+            session_start();
+            // insert relevant session data
+            $_SESSION['name'] = getUsersName();
+            $_SESSION['status'] = getStatus();
+            // redirect to welcome page
             header("Location: index.php?page=welcome");
-         } else $notice = "password ".$_POST['inputPassword']." bad";
+
+         } else $notice = "Login failed: incorrect credentials.";
 
       }
       // if user omitted email/password
@@ -52,6 +61,38 @@ HTML;
 
 function intoArray($notice, $content) {
    return ["notice"=>$notice, "content"=>$content];
+}
+
+function getStatus() {
+
+   $pdo = new PdoMethods();
+
+   $bindings = [
+      [':email', $_POST['inputEmail'], 'str'],
+   ];
+
+   $queryResults = $pdo->selectBinded("SELECT status FROM admins WHERE email = :email", $bindings);
+
+   $status = $queryResults[0]['status'];
+
+   return $status;
+
+}
+
+function getUsersName() {
+
+   $pdo = new PdoMethods();
+
+   $bindings = [
+      [':email', $_POST['inputEmail'], 'str'],
+   ];
+
+   $queryResults = $pdo->selectBinded("SELECT name FROM admins WHERE email = :email", $bindings);
+
+   $name = $queryResults[0]['name'];
+
+   return $name;
+
 }
 
 function hasAnAccount() {

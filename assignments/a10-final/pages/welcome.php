@@ -2,9 +2,12 @@
 
 function init(){
 
+   // inherit session data
+   session_start();
+
    $notice = "";
 
-   $name = "Garrett";
+   $name = $_SESSION['name'];
 
    $content = "<h1><b>Welcome</b></h1><p>Welcome, ".$name."!</p>";
 
