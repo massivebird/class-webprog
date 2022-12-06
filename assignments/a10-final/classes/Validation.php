@@ -35,7 +35,7 @@ class Validation{
 	}
 
 	private function email($input){
-		$match = preg_match('/^[\w\d]+\@[\w\d]+\.[\w\d]+$/i', $input);
+		$match = preg_match('/^[\w\d_]+\@[\w\d_]+\.[\w\d_]+$/i', $input);
 		return $this->setError($match);
 	}
 
