@@ -10,9 +10,9 @@ class Validation{
 		switch($type){
 			case "name": return $this->name($input); break;
 			case "address": return $this->address($input); break;
-			case "phone": return $this->phone($input); break;
-			case "email": return $this->email($input); break;
-			
+         case "phone": return $this->phone($input); break;
+         case "city": return $this->name($input); break;
+         case "email": return $this->email($input); break;
 			
 		}
 	}
@@ -23,9 +23,9 @@ class Validation{
       // cannot be blank
 
       // match BAD CHARACTERS
-		$match = preg_match('/[^a-z\-\'\ ]|^\s*$/i', $input);
+		$match = !preg_match('/[^a-z\-\'\ ]|^\s*$/i', $input);
       // throw error if match exists
-		return $this->setError(!$match);
+		return $this->setError($match);
 	}
 
 	private function phone($input){
