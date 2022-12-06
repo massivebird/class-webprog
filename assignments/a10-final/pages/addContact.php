@@ -68,7 +68,6 @@ $elementsArr = [
       "type"=>"select",
       "options"=>["MI"=>"Michigan","NY"=>"New York","PA"=>"Pennslyvania","TX"=>"Texas"],
       "selected"=>"NY",
-      "regex"=>"name"
    ],
    "phone"=>[
       "errorMessage"=>"<span style='color: red; margin-left: 15px;'>Please enter a valid phone number</span>",
