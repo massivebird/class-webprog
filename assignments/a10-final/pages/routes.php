@@ -14,7 +14,7 @@ if (empty($_SESSION) && $_GET['page'] != "login") {
    header("Location: index.php?page=login");
 }
 
-$path = "index.php?page=login";
+/* $path = "index.php?page=login"; */
 
 $nav=<<<HTML
 <nav>
@@ -83,7 +83,7 @@ if (isset($_GET)) {
 
 // if $_GET is not set, default to login page
 require_once('pages/login.php');
-header('location: '.$path);
+/* header('location: '.$path); */
 return;
 
 ?>

@@ -45,20 +45,28 @@ function init(){
       <thead>
       <tr>
       <th>Name</th>
-      <th>Phone</th>
+      <th>Address</th>
+      <th>City</th>
       <th>State</th>
-      <th>Financial</th>
-      <th>Eye Color</th>
+      <th>Phone</th>
       <th>Email</th>
+      <th>DOB</th>
+      <th>Contact Type</th>
+      <th>Age</th>
+      <th>Delete</th>
       </tr>
       </thead><tbody>";
 
       foreach($records as $row){
          $output .= "<tr><td>{$row['name']}</td>
-         <td>{$row['phone']}</td>
+         <td>{$row['address']}</td>
+         <td>{$row['city']}</td>
          <td>{$row['state']}</td>
-         <td>{$row['financial']}</td>
-         <td>{$row['eye']}</td>
+         <td>{$row['phone']}</td>
+         <td>{$row['email']}</td>
+         <td>{$row['dob']}</td>
+         <td>{$row['contacts']}</td>
+         <td>{$row['age']}</td>
          <td><input type='checkbox' name='chkbx[]' value='{$row['id']}' /></td></tr>";
       }
 
