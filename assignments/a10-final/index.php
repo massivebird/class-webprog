@@ -1,5 +1,6 @@
 <?php
 require_once('pages/routes.php');
+/* echo session_status(); */
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,13 +1,18 @@
 <?php
 
+// controls all routing, bringing in content
+// of other pages
+
 // suppress "session already started" notice
 // (hopefully temporary)
 error_reporting(E_ALL & ~E_NOTICE);
 // inherit session data
 session_start();
 
-// controls all routing, bringing in content
-// of other pages
+// redirect to login page if user is not logged in
+if (empty($_SESSION) && $_GET['page'] != "login") {
+   header("Location: index.php?page=login");
+}
 
 $path = "index.php?page=login";
 
@@ -27,7 +32,7 @@ HTML;
 
 // terminating nav tags
 $nav .= <<<HTML
-<li class="nav-item"><a class="nav-link" href="index.php?page=login">Logout</a></li>
+<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
 </ul>
 </nav>
 HTML;
