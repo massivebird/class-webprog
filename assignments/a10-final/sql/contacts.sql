@@ -1,3 +1,4 @@
+drop table contacts;
 create table contacts
 (
   id int not null auto_increment primary key,
@@ -7,7 +8,7 @@ create table contacts
   state char(2) not null,
   phone char(12) not null,
   email varchar(30) not null,
-  dob date not null,
+  dob varchar(10) not null,
   contacts varchar(30) not null,
   age varchar(6) not null
 )

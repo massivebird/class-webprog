@@ -13,6 +13,7 @@ class Validation{
          case "phone": return $this->phone($input); break;
          case "city": return $this->name($input); break;
          case "email": return $this->email($input); break;
+         case "date": return $this->date($input); break;
 			
 		}
 	}
@@ -23,7 +24,7 @@ class Validation{
       // cannot be blank
 
       // match BAD CHARACTERS
-		$match = !preg_match('/[^a-z\-\'\ ]|^\s*$/i', $input);
+		$match = !preg_match('/[^a-z\ ]|^\s*$/i', $input);
       // throw error if match exists
 		return $this->setError($match);
 	}
@@ -35,6 +36,11 @@ class Validation{
 
 	private function email($input){
 		$match = preg_match('/^[\w\d]+\@[\w\d]+\.[\w\d]+$/i', $input);
+		return $this->setError($match);
+	}
+
+	private function date($input){
+		$match = preg_match('/[0-3][1-9]\/[0-3][1-9]\/\d{4}/i', $input);
 		return $this->setError($match);
 	}
 
