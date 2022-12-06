@@ -18,7 +18,7 @@ $nav=<<<HTML
 <li class="nav-item"><a class="nav-link" href="index.php?page=deleteContacts">Delete Contact(s)</a></li>
 HTML;
 
-if (isset($_SESSION) && $_SESSION['status'] === "admin") {
+if (isset($_SESSION['status']) && $_SESSION['status'] === "admin") {
    $nav.=<<<HTML
 <li class="nav-item"><a class="nav-link" href="index.php?page=addAdmin">Add Admin(s)</a></li>
 <li class="nav-item"><a class="nav-link" href="index.php?page=deleteAdmins">Delete Admin(s)</a></li>
@@ -52,13 +52,13 @@ if (isset($_GET)) {
       return;
    }
 
-   elseif ($_SESSION['status'] === "admin" && $_GET['page'] === "addAdmin") {
+   elseif (isset($_SESSION['status']) && $_SESSION['status'] === "admin" && $_GET['page'] === "addAdmin") {
       require_once('pages/addAdmin.php');
       $result = init();
       return;
    }
 
-   elseif ($_SESSION['status'] === "admin" && $_GET['page'] === "deleteAdmins") {
+   elseif (isset($_SESSION['status']) && $_SESSION['status'] === "admin" && $_GET['page'] === "deleteAdmins") {
       require_once('pages/deleteAdmins.php');
       $result = init();
       return;
