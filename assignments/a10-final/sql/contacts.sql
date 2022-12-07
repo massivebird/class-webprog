@@ -9,6 +9,6 @@ create table contacts
   phone char(12) not null,
   email varchar(30) not null,
   dob varchar(10) not null,
-  contacts varchar(30) not null,
+  contacts varchar(100) not null,
   age varchar(6) not null
 )

@@ -157,7 +157,7 @@ function addData($post) {
       return getForm("<p>There was a problem processing your form</p>", $elementsArr);
    }
    else {
-      return getForm("<p>Contact Information Added</p>", $elementsArr);
+      return getForm("<p>Contact successfully added</p>", $elementsArr);
    }
 
 }
@@ -229,22 +229,22 @@ function getForm($acknowledgement, $elementsArr){
 
    <p class="mt-3 mb-0">Please select an age range (required):{$elementsArr['age']['errorOutput']}</p>
    <div class="form-check mt-0 form-check-inline">
-   <input class="form-check-input" type="radio" name="age" id="age1" value="10-18"  {$elementsArr['age']['value']['10-18']}>
+   <input class="form-check-input" type="radio" name="age" id="age1" value="10-18" {$elementsArr['age']['value']['10-18']}>
    <label class="form-check-label" for="age1">10-18</label>
    </div>
 
    <div class="form-check form-check-inline">
-   <input class="form-check-input" type="radio" name="age" id="age2" value="19-30"  {$elementsArr['age']['value']['19-30']}>
+   <input class="form-check-input" type="radio" name="age" id="age2" value="19-30" {$elementsArr['age']['value']['19-30']}>
    <label class="form-check-label" for="age2">19-30</label>
    </div>
 
    <div class="form-check form-check-inline">
-   <input class="form-check-input" type="radio" name="age" id="age3" value="30-50"  {$elementsArr['age']['value']['30-50']}>
+   <input class="form-check-input" type="radio" name="age" id="age3" value="30-50" {$elementsArr['age']['value']['30-50']}>
    <label class="form-check-label" for="age3">30-50</label>
    </div>
 
    <div class="form-check form-check-inline">
-   <input class="form-check-input" type="radio" name="age" id="age4" value="other"  {$elementsArr['age']['value']['51+']}>
+   <input class="form-check-input" type="radio" name="age" id="age4" value="51+" {$elementsArr['age']['value']['51+']}>
    <label class="form-check-label" for="age4">51+</label>
    </div>
 

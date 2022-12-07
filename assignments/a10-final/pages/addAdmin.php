@@ -96,7 +96,7 @@ function addData($post) {
       return getForm("<p>There was a problem processing your form</p>", $elementsArr);
    }
    else {
-      return getForm("<p>Contact Information Added</p>", $elementsArr);
+      return getForm("<p>Admin successfully added</p>", $elementsArr);
    }
 
 }
