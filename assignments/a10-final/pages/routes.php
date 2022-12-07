@@ -9,6 +9,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 // inherit session data
 session_start();
 
+/* print_r($_SESSION); */
+
 // redirect to login page if user is not logged in
 if (empty($_SESSION) && $_GET['page'] != "login") {
    header("Location: index.php?page=login");
@@ -77,6 +79,9 @@ if (isset($_GET)) {
       // login form
       $result = init();
       return;
+   }
+   else {
+      header("Location: index.php?page=login");
    }
 
 }

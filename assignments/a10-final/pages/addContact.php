@@ -257,7 +257,7 @@ function getForm($acknowledgement, $elementsArr){
    HTML;
 
    /* HERE I RETURN AN ARRAY THAT CONTAINS AN ACKNOWLEDGEMENT AND THE FORM.  THIS IS DISPLAYED ON THE INDEX PAGE. */
-   return ["notice"=>$acknowledgement, "content"=>$form];
+   return ["notice"=>"TEST".$acknowledgement, "content"=>$form];
 
 }
 
