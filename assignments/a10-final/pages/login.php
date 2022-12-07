@@ -17,21 +17,21 @@ function init(){
    /* print_r($postArr); */
 
    if($postArr['masterStatus']['status'] == "error"){
-      echo "there are errors here";
+      /* echo "there are errors here"; */
       return getForm("", $postArr);
    }
 
       // if user provided email, password
       if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
-         echo "BOTH INPUTS";
+         /* echo "BOTH INPUTS"; */
 
          require_once 'classes/Pdo_methods.php';
 
          // if user does not have an account
          if (!hasAnAccount()) {
 
-            echo "HAS ACCOUNT";
+            /* echo "HAS ACCOUNT"; */
 
             return getForm("User does not have an account", $elementsArr);
          }
@@ -53,7 +53,7 @@ function init(){
 
       }
       /* THE ELEMENTS ARRAY HAS A MASTER STATUS AREA. IF THERE ARE ANY ERRORS FOUND THE STATUS IS CHANGED TO "ERRORS" FROM THE DEFAULT OF "NOERRORS".  DEPENDING ON WHAT IS RETURNED DEPENDS ON WHAT HAPPENS NEXT.  IN THIS CASE THE RETURN MESSAGE HAS "NO ERRORS" SO WE HAVE NO PROBLEMS WITH OUR VALIDATION AND WE CAN SUBMIT THE FORM */
-      echo "MID";
+      /* echo "MID"; */
       if($postArr['masterStatus']['status'] == "noerrors"){
 
          /*addData() IS THE METHOD TO CALL TO ADD THE FORM INFORMATION TO THE DATABASE (NOT WRITTEN IN THIS EXAMPLE) THEN WE CALL THE GETFORM METHOD WHICH RETURNS AND ACKNOWLEDGEMENT AND THE ORGINAL ARRAY (NOT MODIFIED). THE ACKNOWLEDGEMENT IS THE FIRST PARAMETER THE ELEMENTS ARRAY IS THE ELEMENTS ARRAY WE CREATE (AGAIN SEE BELOW) */

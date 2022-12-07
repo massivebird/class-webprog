@@ -87,7 +87,7 @@ function addData($post) {
 
    // error if a user already exists with inputted email
    if (!empty($pdo->selectBinded("SELECT id FROM admins WHERE email = :email", array($bindings[0])))) {
-      return getForm("<p>A user already exists with that email.</p>", $elementsArr);
+      return getForm("<p>A user already exists with that email</p>", $elementsArr);
    }
 
    $result = $pdo->otherBinded($sql, $bindings);
@@ -110,7 +110,6 @@ function getForm($acknowledgement, $elementsArr){
 
    /* THIS IS A HEREDOC STRING WHICH CREATES THE FORM AND ADD THE APPROPRIATE VALUES AND ERROR MESSAGES */
    $form = <<<HTML
-   <h1><b>Add Admin(s)</b></h1>
    <form method="post" action="index.php?page=addAdmin">
 
    <div class="form-group">
@@ -143,7 +142,7 @@ function getForm($acknowledgement, $elementsArr){
    HTML;
 
    /* HERE I RETURN AN ARRAY THAT CONTAINS AN ACKNOWLEDGEMENT AND THE FORM.  THIS IS DISPLAYED ON THE INDEX PAGE. */
-   return ["notice"=>$acknowledgement, "content"=>$form];
+   return ["notice"=>"<h1><b>Add Admin</b></h1>".$acknowledgement, "content"=>$form];
 
 }
 

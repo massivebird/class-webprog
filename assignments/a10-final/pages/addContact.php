@@ -51,7 +51,7 @@ $elementsArr = [
       "regex"=>"name"
    ],
    "address"=>[
-      "errorMessage"=>"<span style='color: red; margin-left: 15px;'>Address cannot be blank and must be valid</span>",
+      "errorMessage"=>"<span style='color: red; margin-left: 15px;'>Please enter a valid address</span>",
       "errorOutput"=>"",
       "type"=>"text",
       "value"=>"60 Patriot Street",
@@ -97,7 +97,7 @@ $elementsArr = [
    ],
    "age"=>[
       "action"=>"required",
-      "errorMessage"=>"<span style='color: red; margin-left: 15px;'>You must select an age range</span>",
+      "errorMessage"=>"<span style='color: red; margin-left: 15px;'>Please select an age range</span>",
       "errorOutput"=>"",
       "type"=>"radio",
       "value"=>["10-18"=>"", "19-30"=>"", "30-50"=>"", "51+"=>""]
@@ -171,7 +171,6 @@ function getForm($acknowledgement, $elementsArr){
 
    /* THIS IS A HEREDOC STRING WHICH CREATES THE FORM AND ADD THE APPROPRIATE VALUES AND ERROR MESSAGES */
    $form = <<<HTML
-   <h1><b>Add Contact(s)</b></h1>
    <form method="post" action="index.php?page=addContact">
 
    <div class="form-group">
@@ -257,7 +256,7 @@ function getForm($acknowledgement, $elementsArr){
    HTML;
 
    /* HERE I RETURN AN ARRAY THAT CONTAINS AN ACKNOWLEDGEMENT AND THE FORM.  THIS IS DISPLAYED ON THE INDEX PAGE. */
-   return ["notice"=>"TEST".$acknowledgement, "content"=>$form];
+   return ["notice"=>"<h1><b>Add Contact</b></h1>".$acknowledgement, "content"=>$form];
 
 }
 

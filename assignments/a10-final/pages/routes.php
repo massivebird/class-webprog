@@ -21,13 +21,13 @@ if (empty($_SESSION) && $_GET['page'] != "login") {
 $nav=<<<HTML
 <nav>
 <ul class="nav">
-<li class="nav-item"><a class="nav-link" href="index.php?page=addContact">Add Contact(s)</a></li>
+<li class="nav-item"><a class="nav-link" href="index.php?page=addContact">Add Contact</a></li>
 <li class="nav-item"><a class="nav-link" href="index.php?page=deleteContacts">Delete Contact(s)</a></li>
 HTML;
 
 if (isset($_SESSION['status']) && $_SESSION['status'] === "admin") {
    $nav.=<<<HTML
-<li class="nav-item"><a class="nav-link" href="index.php?page=addAdmin">Add Admin(s)</a></li>
+<li class="nav-item"><a class="nav-link" href="index.php?page=addAdmin">Add Admin</a></li>
 <li class="nav-item"><a class="nav-link" href="index.php?page=deleteAdmins">Delete Admin(s)</a></li>
 HTML;
 }

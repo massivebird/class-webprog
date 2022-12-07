@@ -26,7 +26,7 @@ function init(){
       }
    }
 
-   $output = "<h1><b>Delete Contact(s)</b></h1>";
+   $output = "";
 
    $pdo = new PdoMethods();
 
@@ -83,6 +83,6 @@ function init(){
       else {
          $msg="";
       }
-      return ["notice"=>$msg, "content"=>$output];
+      return ["notice"=>"<h1><b>Delete Contact(s)</b></h1>".$msg, "content"=>$output];
    }
 }
